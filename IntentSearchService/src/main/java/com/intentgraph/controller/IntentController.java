@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.intentgraph.service.IntentInterface;
 import com.intentgraph.service.IntentService;
@@ -64,7 +65,8 @@ public class IntentController {
 		return new ResponseEntity<String>("found", HttpStatus.OK);
 		
 	}
-	
+
+	 @CrossOrigin("*")
 	 @PostMapping("/postcsvsubconcept")
 	    public @ResponseBody ResponseEntity<String> savefromcsv(@RequestParam String csvname) {
 	    	

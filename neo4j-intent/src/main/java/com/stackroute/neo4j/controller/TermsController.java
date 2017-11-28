@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.jcabi.aspects.Loggable;
 import com.stackroute.neo4j.domain.CounterIndicator;
@@ -62,6 +63,8 @@ public class TermsController {
 
 	}
 
+
+	@CrossOrigin("*")
 	@RequestMapping("/graphterms")
 	public @ResponseBody ListIndicator graph_terms(
 			@RequestParam(value = "limit", required = false) Integer limit) {
@@ -78,6 +81,7 @@ public class TermsController {
 
 	}
 
+	@CrossOrigin("*")
 	@RequestMapping("/getterms")
 	public @ResponseBody ArrayList<String> get_terms(@RequestParam(value = "limit", required = false) Integer limit) {
 		Collection<Terms> collection = indicatorService.listterms(limit == null ? 100 : limit);
@@ -131,6 +135,8 @@ public class TermsController {
 
 	}
 
+
+	@CrossOrigin("*")
 	@PostMapping("/postcsvindicator")
 	public @ResponseBody ResponseEntity<String> savefromcsv(@RequestParam String csvname) {
 		FileReader f, fe;
