@@ -28,6 +28,8 @@ export class SideResComponent implements OnInit {
   query:any;
   correctedquery:any;
   text:any;
+ flagJava:boolean=false;
+ flagInvest:boolean=false;
  
   constructor(
     private route: ActivatedRoute,
@@ -37,14 +39,28 @@ export class SideResComponent implements OnInit {
   ngOnInit() {
     this.domain = this.route.snapshot.paramMap.get('domain');
     console.log(this.domain);
+    if (this.domain=="java")
+    this.flagJava=true;
+    if (this.domain=="finance")
+    this.flagInvest=true;
+
+    
+
+
   }
  
   public send(query): void {
+
     console.log(query)
     this.serverResponse=null;
     this.correctedquery=null;
     this.text=null;
+    if(query==""){
+    this.showLoader=false;
+    }
+    else{
     this.showLoader=true;
+    }
     this.searchdone = false;
     this.query=query;
     
@@ -62,7 +78,7 @@ export class SideResComponent implements OnInit {
         console.log("INSIDE QUERY");
         
            this.serverResponse =data.result;
-           if(this.serverResponse.length<=1){
+           if(this.serverResponse.length<1){
 
             this.text="no results available for the query";
            }

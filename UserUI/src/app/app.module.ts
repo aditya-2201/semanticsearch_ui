@@ -38,6 +38,7 @@ import { FakeComponent } from './fake/fake.component';
 import { SigninComponent } from './signin/signin.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { PostgraphadminComponent } from './postgraphadmin/postgraphadmin.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     SidebarDomainComponent,
     HeaderComponent,
     FakeComponent,
-    SigninComponent
+    SigninComponent,
+    PostgraphadminComponent
     
     
   ],
@@ -104,7 +106,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
       { path: 'sidebardomain', component: SidebarDomainComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'chat', component: ChatDialogComponent },
-      { path: 'login', component: SigninComponent }
+      { path: 'login', component: SigninComponent },
+      { path: 'administrator/neo4j/admin', component: PostgraphadminComponent }
       
     ])
   ],

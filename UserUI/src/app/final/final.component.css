@@ -3,7 +3,7 @@
   }
 .card{
   
-  background: transparent;
+  background:transparent;
   width: 250px;
   height: 160px;
   display: inline-block;
@@ -36,7 +36,6 @@ display: block;
 
 
 .domain-logo{
-
   height: 200px;
   width:200px;
   background-image: url(../../assets/java.png);
@@ -45,6 +44,8 @@ display: block;
 }
  
 img{
+  background: transparent;
+  z-index: -1000px;
   padding-top:10px;
   margin-left: 50px;
   width: 100px;
