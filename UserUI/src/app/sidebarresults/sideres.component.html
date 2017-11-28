@@ -1,0 +1,79 @@
+<div class="sticky">
+    <app-header></app-header>
+</div><!--end of stickyy -->
+
+<div class="stickyy">
+    <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Domain Search
+                </mat-panel-title>
+                <mat-panel-description>
+                  Search in {{this.domain}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+          
+              <div class="container">
+                    <form role="search">
+                      <div class="input-group add-on">
+                        
+                          <form class="example-form font-color">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Search" #sendValue value={{concept}} class="fieldcolor">
+                              </mat-form-field>
+                                <div class="input-group-btn btn-place">
+                                  <button mat-raised-button color="primary" type="button" (click)="send(sendValue.value)" class="btn-color">
+                                    Search
+                                  </button>
+                                </div>  
+                            </form>
+                      </div>
+                    </form>
+                  </div>
+            </mat-expansion-panel>
+           
+          </mat-accordion>
+                <mat-progress-bar mode="indeterminate" *ngIf="showLoader" class="loader"></mat-progress-bar>
+           
+</div>
+            <div class="relative">
+                <div class="container">
+                    <div class="col-sm-9 results">
+                        <div class="logo">
+                            <br>
+                        <p id="red">{{text}}</p>
+                  <p class="correctedquery"> <em><strong>{{correctedquery}}</strong></em></p>
+                </div>
+                    
+                    <div *ngFor="let item of serverResponse">
+                        <mat-card>
+                        <a href="{{item.urlFromGoogle.name}}" ><h4 id="title">{{item.urlFromGoogle.title}}</h4></a>
+                        <a href="{{item.urlFromGoogle.name}}"  ><h5 id="url" >{{item.urlFromGoogle.name}}</h5></a>
+                        <h5>{{item.urlFromGoogle.snippet}}</h5>
+                    </mat-card>
+                    <br>
+                    </div>
+                </div><!--end of col-sm-9-->
+                </div><!--end of container-->
+            </div>
+
+            <div *ngIf="searchdone" class="container allcards">
+
+            <h4 class="popular">Popular Searches</h4>
+            <br>
+            <br>
+            <mat-card class="cards">
+                Interface
+                <div class="interface"></div>
+            </mat-card>
+            <mat-card class="cards">
+                    class
+                    <div class="class"></div>
+                </mat-card>
+                <mat-card class="cards">
+                        Encapsulation
+                        <div class="encapsulation"></div>
+                    </mat-card>
+
+        </div><!--end of searchdone-->
