@@ -13,7 +13,7 @@ import { ListUrls } from './listurls';
 export class SocketService {
  stompClient:any;
  socketMessageSource = new Subject<ListUrls>();
- socketUrl = 'http://10.20.1.40:8088/gs-guide-websocket';
+ socketUrl = 'http://localhost:8088/gs-guide-websocket';
  socket: any;
  messageSubscription:any;
  socketMessage: String = "Default";

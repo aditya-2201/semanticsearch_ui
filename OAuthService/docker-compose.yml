@@ -23,7 +23,7 @@ services:
     ports :
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD : mysql
+      MYSQL_ROOT_PASSWORD : aditya123
       MYSQL_DATABASE : OAUTH
 
   # ui : 
@@ -35,8 +35,10 @@ services:
     build : .
     ports :
       - "8087:8087"
-    environment :
-       mysql_url : mysql
+    # environment :
+    #   mysql_url : mysql
+    depends_on :
+      - db
   
   # graph :
   #   image : neo4j
